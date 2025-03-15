@@ -1,7 +1,10 @@
 {
     "editor.fontSize": 16,
+    "editor.minimap.enabled": false,
+    //"terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
     "terminal.integrated.fontSize": 16,
-    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.fontFamily": "나눔바른펜",
     "terminal.integrated.defaultLocation": "\"${fileDirname}\"",
     "redhat.telemetry.enabled": true,
     "workbench.settings.applyToAllProfiles": [
@@ -25,8 +28,6 @@
         "tab.activeBackground": "#ebebe4",                        
         "tab.activeBorder": "#ef0c0c",                                
     },
-    "terminal.integrated.defaultProfile.windows": "Command Prompt",
-    "editor.minimap.enabled": false,
     "sshfs.configs": [
         {
             "name": "k8s-master",
@@ -46,5 +47,5 @@
         }
     ],
     "editor.accessibilityPageSize": 12,
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
 }
