@@ -1,0 +1,50 @@
+{
+    "editor.fontSize": 16,
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.defaultLocation": "\"${fileDirname}\"",
+    "redhat.telemetry.enabled": true,
+    "workbench.settings.applyToAllProfiles": [
+
+    ],
+    "workbench.colorCustomizations": {
+        "terminal.background": "#080808",
+        "terminal.foreground": "#7bf783",
+        "terminalCursor.background": "#fcf9f9",        
+        "terminalCursor.foreground": "#ff0808",                
+        "terminal.border": "#f7f8f7",
+        "editorGroup.border": "#ff0000",
+        "editorGroupHeader.border": "#ff0000",        
+        "editor.lineHighlightBackground": "#32322e",
+        "sideBar.border": "#ff0000",
+        "sideBar.background": "#000000",        
+        "titleBar.border": "#ff0000",
+        "tab.border": "#1100ff",
+        "tab.activeBorderTop": "#ff0000",        
+        "tab.activeForeground": "#0c0c0c",                
+        "tab.activeBackground": "#ebebe4",                        
+        "tab.activeBorder": "#ef0c0c",                                
+    },
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "editor.minimap.enabled": false,
+    "sshfs.configs": [
+        {
+            "name": "k8s-master",
+            "host": "192.168.35.210"
+        },
+        {
+            "name": "k8s-worker1",
+            "host": "192.168.35.211",
+            "username": "user01",
+            "password": "q"
+        },
+        {
+            "name": "k8s-worker2",
+            "host": "192.168.35.212",
+            "username": "user01",
+            "password": "q"
+        }
+    ],
+    "editor.accessibilityPageSize": 12,
+    "workbench.startupEditor": "none"
+}
