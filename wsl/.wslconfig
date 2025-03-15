@@ -1,3 +1,5 @@
+# c:\Users\USER\.wslconfig
+
 [wsl2]
 processors=8
 memory=6291456000
