@@ -1,0 +1,9 @@
+[wsl2]
+processors=8
+memory=6291456000
+#vmSwitch=outSwitch01
+#networkingMode=bridged
+vmSwitch=outSwitch01
+networkingMode=bridged
+swap=3246391296
+[experimental]
