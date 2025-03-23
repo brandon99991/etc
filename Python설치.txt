@@ -1,5 +1,5 @@
 
-Python설치
+Python설치 (Ubuntu)
 ----------------------------------------------
 sudo apt update
 sudo apt install python3
