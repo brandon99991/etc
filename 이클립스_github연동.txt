@@ -1,0 +1,111 @@
+1. 사전 설정 및 준비사항
+  1)  git global config파일 수정 
+          =>  기본 브랜치를 main으로 변경 
+          => 참고: .gitconfig 파일 
+  2)  GitHub PAT생성 (한번만 생성하면 됨)
+        => 참고 : GitHub PAT
+  3) GitHub 레포지토리 생성 
+        => 레포지토리명 : subject.java01
+
+2. 자바 프로젝트 생성, 코딩, 컴파일, 실행
+  1) 새 프로젝트 생성
+      => File > New > Java Project
+      => 프로젝트 명 :  subject.java01
+      =>  Module > Create moudle-info.java file 의 체크박스는 해제
+      => 프로젝트 명 입력 
+      =>  finish 버튼
+  2) 소스 파일 추가 및 코딩, 컴파일 및 실행
+      => New > Class
+      => Package에서 Browser버튼 클릭후 Default Package 더블 클릭.
+      => 클래스 명 : Hello
+      => Finish 버튼      
+      => 코딩 ~~~~~~  
+      => 컴파일 및 실행 ( ctrl + f11)
+
+3. 자바 프로젝트를 Local Git Repository에 등록 및 커밋(저장)
+  1) Team > Share Project
+  2) Repository에서 use or create repository in parent folder of project 체크박스에 체크
+  3) Create Repository 버튼 클릭 후 Finish 버튼 클릭 
+  4) .gitignore 파일 수정 
+      C:\DevHome\workspace.eclipse\subject.java01\.gitignore파일 수정 
+      (예제 파일 참고하여 편집기에서 수정)
+  5) 하단 Git Staging탭에서 Unstaged changes에 모든 파일들을 선택후 +버튼 클릭
+  6) commit message 입력 후 commit 버튼
+
+4. 자바프로젝트와 GitHub 연동
+   1) 자바프로젝트에서 Team > push branch main 클릭
+   2) Location 하위 URI에 GitHub 레포지토리 url 입력
+      URI는 Github의 레포지터리에 가서 url copy해와서 복사할 것.
+      https://github.com/[본인의 계정]/subject.java01.git
+   3) preview 버튼 > preview 버튼 > push 버튼 > close 버튼
+   4) Github에 가서 소스가 업로드 되었는지 확인하기
+
+5.  소스 폴더 추가하기 (소스 폴더는 주별로 생성하기)
+  1) 자바프로젝트에서 week02 소스폴더 생성  (week02는 2주차를 의미함)
+      => New > Source Folder
+      => Folder Name : week02
+      => Finish 버튼      
+  2) 소스 파일 추가  (week02 폴더에서) 및 코딩, 컴파일 및 실행
+      => New > Class
+      => Package에서 Browser버튼 클릭후 Default Package 더블 클릭.
+      => 클래스 명 : Hello
+      => Finish 버튼      
+      => 코딩 ~~~~~~  
+      => 컴파일 및 실행 ( ctrl + f11)
+  3) 추가한 폴더 및 파일들을 Github에 올리기
+      => 하단 Git Staging탭에서 Unstaged changes에 모든 파일들을 선택후 +버튼 클릭
+      => commit message 입력 후 commit and push 버튼  (commit버튼이 아님!!!)
+      => close 버튼 클릭
+
+----------------------------------
+# GitHub PAT생성
+----------------------------------
+1. GitHub Personal Access Token (PAT) 생성
+GitHub에서 **Personal Access Token (PAT)**을 생성하려면 아래 절차를 따르세요:
+
+GitHub에 로그인: GitHub 웹사이트(https://github.com)에 로그인합니다.
+
+Token 생성:
+
+오른쪽 상단의 프로필 아이콘을 클릭하고 Settings를 선택합니다.
+왼쪽 메뉴에서 Developer settings를 클릭한 후, Personal access tokens을 선택합니다.
+Generate new token을 클릭합니다.
+Token 권한 설정:
+
+Note 필드에 토큰에 대한 설명을 입력합니다 (예: "Eclipse Git Integration").
+필요한 권한을 선택합니다. 보통 기본 권한인 repo와 workflow 권한을 선택하면 됩니다.
+Token 생성:
+
+하단의 Generate token 버튼을 클릭하여 토큰을 생성합니다.
+생성된 토큰을 복사해 두세요. 토큰은 한 번만 표시되므로 복사 후 안전하게 보관해야 합니다.
+
+----------------------------------
+C:\Users\USER\.gitconfig 파일
+----------------------------------
+[init]
+    defaultBranch = main
+
+----------------------------------
+# 자바프로젝트 폴더 > .gitignore 파일
+----------------------------------
+# Eclipse specific files
+.project
+.classpath
+.settings/
+
+# Java build output
+bin/
+target/
+
+# Maven
+target/
+
+# Gradle
+.gradle/
+build/
+
+# IntelliJ IDEA
+.idea/
+
+# macOS
+.DS_Store
