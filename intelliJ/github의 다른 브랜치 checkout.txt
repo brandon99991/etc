@@ -1,0 +1,8 @@
+IntelliJ IDEA 실행
+File > New > Project from Version Control > Git 선택
+GitHub 레포지토리 URL 입력 후 Clone
+
+프로젝트가 열리면:
+Git 툴바에서 Branches 클릭
+Remote > origin에서 원하는 브랜치 선택
+Checkout 클릭
