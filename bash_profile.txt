@@ -1,0 +1,263 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+#### User specific environment and startup programs
+
+PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
+export PATH
+
+# windows cmd
+export PATH=$PATH:/mnt/c/Windows/System32
+
+EDITOR=vi
+export EDITOR
+set -o vi
+export PS1="[\$LOGNAME@`hostname`:\$PWD]$ "
+#export PS1="[\$LOGNAME@`hostname`:\>]$ "
+
+alias ps2="export PS1='[\u@\h \W]\$ '"
+alias ps3="export PS1='[\u]\$ '"
+alias ps4="export PS1='[@\h]\$ '"
+alias ps5="export PS1='[\w]\$ '"
+
+alias sp="source ~/.bash_profile"
+alias vp="vi ~/.bash_profile"
+
+alias repo="cd /home/user01/repository"
+
+
+#alias wbin="cd ~/whatap_single/bin"
+#alias wconf="cd ~/whatap_single/conf"
+
+export APP_HOME="/home/user01/apphome"
+export DEV_HOME="/home/user01"
+export TOMCAT_HOME="$DEV_HOME/tomcat.home/apache-tomcat-9.0.65"
+#export MAVEN_HOME="$DEV_HOME/mvn.home/apache-maven-3.6.3"
+export MAVEN_HOME="$DEV_HOME/mvn.home/apache-maven-3.9.4"
+export DOCKER_HOME="$DEV_HOME/workspace/vscode/docker"
+export KUBERNETES_HOME="$DEV_HOME/workspace/vscode/kubernetes"
+#export JAVA_HOME=$DEV_HOME/jdk/jdk1.8.0_77
+export JAVA_HOME=$DEV_HOME/jdk/jdk-11.0.11
+export PATH=$JAVA_HOME/bin:$TOMCAT_HOME/bin:$MAVEN_HOME/bin:$PATH
+
+
+##############   WebLogic12 ENV    ##############
+export MW_HOME=/u01/app/oracle/middleware
+export WLS_HOME=$MW_HOME/wlserver
+export WL_HOME=$WLS_HOME
+#export DOMAIN_HOME=/home/user01/wls_domain/mydomain
+export JAVA_OPTIONS=-Djava.security.egd=file:/dev/./urandom
+
+########## JEUS8 Set ##############
+export JEUS_HOME="$DEV_HOME/tmax.home/jeus8001"
+#export JEUS_HOME="$DEV_HOME/tmax.home/jeus85"
+export PATH="$JEUS_HOME/bin:$JEUS_HOME/lib/system:${PATH}"
+export PATH=~/bin:$PATH
+
+########## JEUS8 DomainAdminServer Set ##############
+export DOMAIN_NAME=jeus_domain
+export DOMAIN_HOME=$JEUS_HOME/domains/jeus_domain
+export DAS_HOSTNAME=desk01
+export DAS_PORT=9736
+#export DAS_PORT=19736
+export DAS_URL=${DAS_HOSTNAME}:${DAS_PORT}
+export NODE_MANAGER_PORT=7730
+
+########## JEUS Alias #################
+alias jhome='cd ${JEUS_HOME}'
+alias dhome='cd ${DOMAIN_HOME}'
+alias jcfg='cd ${JEUS_HOME}/domains/${DOMAIN_NAME}/config'
+alias jbin='cd ${JEUS_HOME}/bin'
+alias jlib='cd ${JEUS_HOME}/lib'
+alias jlog='cd ${JEUS_LOG_HOME}'
+#alias tdaslog='tail -f $DOMAIN_HOME/servers/adminServer/JeusServer.log'
+#alias tserver1log='tail -f $DOMAIN_HOME/servers/server1/JeusServer.log'
+alias tdaslog='tail -f /logs/jeus/adminServer/JeusServer.log'
+alias tserver1log='tail -f /logs/jeus/server1/JeusServer.log'
+
+##############   WebtoB ENV    ##############
+#export WEBTOBDIR=$APP_HOME/tmax.home/webtob5
+export WEBTOBDIR=$DEV_HOME/tmax.home/webtob5
+export PATH="${WEBTOBDIR}/bin:${PATH}"
+export LD_LIBRARY_PATH="${WEBTOBDIR}/lib:${LD_LIBRARY_PATH}"
+
+##############    WebtoB Alias    ##############
+alias whome='cd $WEBTOBDIR/'
+alias wcfg='cd $WEBTOBDIR/config'
+alias wbin='cd $WEBTOBDIR/bin'
+alias wbin='cd $WEBTOBDIR/log'
+
+############################################################
+# System Alias
+############################################################
+# rinet conf : /etc/rinetd.conf
+alias rstart="sudo rinetd start"
+alias rstop="sudo rinetd stop"
+alias rrestart="sudo rinetd restart"
+alias rconf="cat /etc/rinetd.conf"
+alias netchk="netstat -an | grep"
+alias pschk="ps -ef | grep -i"
+
+############################################################
+# Remote Alias
+############################################################
+alias ssh.vm01="ssh vm01@192.168.35.201"
+alias sftp.vm01="sftp vm01@192.168.35.201"
+alias ssh.master="ssh user01@192.168.35.210"  # k8s
+alias ssh.worker1="ssh user01@192.168.35.211" # k8s
+alias ssh.worker2="ssh user01@192.168.35.212" # k8s
+
+############################################################
+# Tomcat Alias
+############################################################
+alias thome="cd $TOMCAT_HOME"
+alias tlhome="cd $TOMCAT_HOME/logs"
+alias tlog="tail -f $TOMCAT_HOME/logs/catalina.out"
+alias tnlog="tail -f $TOMCAT_HOME/logs/nohup.log"
+alias tbin="cd $TOMCAT_HOME/bin"
+alias tconf="cd $TOMCAT_HOME/conf"
+alias tstart="nohup $TOMCAT_HOME/bin/tomcat_start.sh >> $TOMCAT_HOME/logs/nohup.log 2>&1"
+alias tstop="nohup $TOMCAT_HOME/bin/tomcat_stop.sh >> $TOMCAT_HOME/logs/nohup.log 2>&1"
+alias trestart="nohup $TOMCAT_HOME/bin/tomcat_restart.sh >> $TOMCAT_HOME/logs/nohup.log 2>&1"
+
+############################################################
+# Docker Alias
+############################################################
+alias dstart="sudo service docker start"
+alias dstop="sudo service docker stop"
+
+alias dlogin="sudo docker login"
+alias dlogout="sudo docker logout"
+
+alias dansible="docker start ansible-server"
+alias ddocker="docker start docker-server"
+
+alias dps="sudo docker ps"
+alias dpsa="sudo docker ps -a"
+alias dimg="sudo docker images"
+alias dinfo="sudo docker info"
+alias dnet="docker network ls"
+alias dinspect="docker network inspect bridge"
+
+#alias dexa="docker exec -it ansible-server bash"
+#alias dexd="docker exec -it docker-server bash"
+#alias dbuild="sudo docker build ./"
+#alias drun="sudo docker run -it [image]"
+#alias dpush="sudo docker push [image]"
+#alias drmi="sudo docker rmi [image]"
+#alias drm="sudo docker rm -f $(docker ps -aq --filter ancestor=brandon9999/hellodocker)"
+#alias dping="docker run alpine ping localhost"
+
+############################################################
+# GIT Alias
+############################################################
+alias gtoken="echo glpat-zphq17UJrJ4xsn818BCm"    # gitlab.com(induomo2) token
+alias gcommit="git commit -m"
+alias gremote="git remote -v"
+alias glog="git log"
+alias gstatus="git status"
+alias gbranch="git branch"
+alias gcheckout="git checkout -b"
+alias gpull="git pull origin master"
+alias gpush="git pull"  # and branchname (ex : origin feature/new01)
+#alias gpull="git pull origin master --rebase"
+alias gpush="git push origin master"
+alias gpush="git push"  # and branchname (ex : origin feature/new01)
+alias greset="git reset --hard origin/master"
+alias githubtoken="sudo git remote set-url origin https://brandon99991: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@github.com/brandon99991/lab.inflearn.git"
+
+
+############################################################
+# EGOV CI Alias
+############################################################
+export EGOVCI_HOME="$DEV_HOME/eci.home/eGovCI-3.10.0"
+#export EGOVCI_HOME="$DEV_HOME/eci.home/eGovCI-3.9.0"
+alias boot.j="$EGOVCI_HOME/start-jenkins.sh"
+alias boot.n="$EGOVCI_HOME/start-nexus.sh"
+alias down.j="$EGOVCI_HOME/stop-jenkins.sh"
+alias down.n="$EGOVCI_HOME/stop-nexus.sh"
+
+############################################################
+# Ansible Alias
+############################################################
+alias ssh.ansible0="sudo ssh root@192.168.35.35 -p 30022"
+alias ssh.ansible1="sudo ssh root@192.168.35.35 -p 31022"
+alias ssh.ansible2="sudo ssh root@192.168.35.35 -p 32022"
+
+############################################################
+# NCP Alias
+############################################################
+export NCLOUD_ACCESS_KEY=2UqcwbBNBPVcWAhL2mY3
+export NCLOUD_SECRET_KEY=pTDFS720CuEeJnkkY2XnIUq0zY2MmdJnW4C3ECUV
+
+##############   OpenShift Alias    ##############
+export PATH="~/udemy.openshift/bin:${PATH}"
+#export KUBECONFIG="~/.kube/config"
+alias conf-openshift="export KUBECONFIG=~/.kube/config"
+alias curltest='curl -k https://api.crc.testing:6443'
+alias oc.labs='cd ~/udemy.openshift/labs'
+alias oc.whoami='oc whoami'
+alias oc.login='oc login -u developer'
+alias oc.login.admin='oc login -u kubeadmin -p UuAAW-XJ5vG-n2gdo-S5xRJ https://api.crc.testing:6443'
+alias oc.logout='oc logout'
+alias oc.deploy='oc new-app quay.io/practicalopenshift/hello-world --as-deployment-config'
+alias oc.delete='oc delete all -l app=hello-world'
+alias oc.all='oc get all'
+alias oc.status='oc status'
+alias oc.rsh='oc rsh'
+
+############################################################
+# k8s Alias
+############################################################
+alias k="kubectl "
+alias kgn="k get node"
+alias kgp="k get pods"
+alias kgp2="k get pods -o wide"
+alias kgd="k get deploy"
+alias kgs="k get svc"
+
+
+alias conf-k8s="export KUBECONFIG=~/.kube2.k8s/config"
+alias use-default="unset KUBECONFIG"
+
+parse_git_branch()
+{
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+c_cyan=`tput setaf 6`
+c_red=`tput setaf 1`
+c_green=`tput setaf 2`
+c_sgr0=`tput sgr0`
+branch_color ()
+{
+   if git rev-parse --git-dir >/dev/null 2>&1
+   then
+      color=""
+      if git diff --quiet 2>/dev/null >&2
+      then
+         color="${c_green}"
+      else
+         color=${c_red}
+      fi
+   else
+      return 0
+   fi
+   echo -ne $color
+}
+
+# Full Path
+export PS1='\e[01;32m\u@\h \[\e[34m\]${PWD}\[${c_sgr0}\]\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]\n\$ '
+
+# Short Path
+#export PS1='\e[01;32m\u@\h \[\e[34m\]\w\[${c_sgr0}\]\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]\$ '
+#export PS1='\[\e[34m\]\w\[${c_sgr0}\]\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]\$ '
+
+#export PS1="[\$LOGNAME@`hostname`:\$PWD]$ "
+
+#export PROMPT_DIRTRIM=3
+#export PS1='[\u@\h:\w]\n\$ '
